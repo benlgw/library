@@ -59,3 +59,54 @@ header button span {
 
 	border: 1px solid black;
 }
+
+.close {
+	display: none;
+}
+
+dialog {
+	position: absolute;
+	top: 30%;
+
+	padding: 0;
+
+	height: auto;
+
+	border: none;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+dialog form {
+	padding: 15px;
+
+	background-color: aliceblue;
+	box-shadow: 1px 1px 5px 1px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+dialog form .header {
+	display: flex;
+	gap: 25px;
+}
+
+dialog form .header button {
+	display: flex;
+	align-items: center;
+
+	height: 20px;
+
+	border: none;
+	border-radius: 50%;
+
+	font-weight: bold;
+
+	color: white;
+	background-color: red;
+	box-shadow: 1px 1px 5px 1px black;
+}

@@ -52,7 +52,11 @@ createBook({
 
 // End PlaceHolder Books
 
+const addNewBook = document.querySelector("#addNewBook");
 const bookGrid = document.querySelector(".book-grid");
+const modal = document.querySelector("dialog");
+const modalForm = document.querySelector("form");
+const formButton = document.querySelector("#modalAddButton");
 
 books.forEach((book) => {
 	const card = document.createElement("div");
@@ -60,4 +64,27 @@ books.forEach((book) => {
 	card.setAttribute("id", book.id);
 	card.textContent = book.info();
 	bookGrid.append(card);
+});
+
+addNewBook.addEventListener("click", () => {
+	modal.classList.remove("close");
+});
+
+const hasRead = document.querySelector("#read");
+
+formButton.addEventListener("click", () => {
+	event.preventDefault();
+
+	let read;
+	hasRead == "yes" ? (read = true) : (read = false);
+
+	createBook({
+		book: modalForm.title.value,
+		author: modalForm.author.value,
+		release: modalForm.release.value,
+		totalPages: modalForm.totalPages.value,
+		read: read,
+	});
+
+	modal.classList.add("close");
 });

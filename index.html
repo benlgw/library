@@ -10,8 +10,32 @@
 	<body>
 		<header>
 			<h1>Welcome to the Libary!</h1>
-			<button><span>+</span> New Book</button>
+			<button id="addNewBook"><span>+</span> New Book</button>
 		</header>
 		<div class="book-grid"></div>
+		<dialog class="close">
+			<form>
+				<div class="header">
+					<h2>Add a new book to the library!</h2>
+					<button>X</button>
+				</div>
+				<label for="title">Book Title</label>
+				<input type="text" id="title" name="title" />
+				<label for="author">Book Author</label>
+				<input type="text" id="author" name="author" />
+				<label for="release">Release Year</label>
+				<input type="text" id="release" name="release" />
+				<label for="totalPages">Total Pages</label>
+				<input type="number" id="totalPages" name="totalPages" />
+				<label for="read">Have you read this book?</label>
+				<div id="read">
+					<input type="radio" id="read" name="yes" value="yes" />
+					<label>Yes</label>
+					<input type="radio" id="read" name="no" value="no" />
+					<label>No</label>
+				</div>
+				<button type="submit" id="modalAddButton">Add Book</button>
+			</form>
+		</dialog>
 	</body>
 </html>
