@@ -38,6 +38,12 @@ header button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	cursor: pointer;
+}
+
+header button:hover {
+	background-color: rgba(240, 248, 255, 0.8);
 }
 
 header button span {
@@ -170,4 +176,25 @@ dialog form .header button {
 	color: white;
 	background-color: red;
 	box-shadow: 1px 1px 5px 1px black;
+
+	cursor: pointer;
+}
+
+dialog form .header button:hover {
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+dialog form > button {
+	border: none;
+	border-radius: 15px;
+
+	box-shadow: 1px 1px 5px 1px black;
+
+	height: 25px;
+
+	cursor: pointer;
+}
+
+dialog form > button:hover {
+	background-color: lightgrey;
 }
