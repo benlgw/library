@@ -68,15 +68,14 @@ const hasRead = document.querySelector("#read");
 formButton.addEventListener("click", () => {
 	event.preventDefault();
 
-	let read;
-	hasRead == "yes" ? (read = true) : (read = false);
+	console.log(modalForm.read.value);
 
 	createBook({
 		book: modalForm.title.value,
 		author: modalForm.author.value,
 		release: modalForm.release.value,
 		totalPages: modalForm.totalPages.value,
-		read: read,
+		read: modalForm.read.value == "yes" ? true : false,
 	});
 
 	modal.classList.add("close");
