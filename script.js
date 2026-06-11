@@ -91,7 +91,6 @@ function updateBooks() {
 		book.read == true
 			? (card.style.backgroundColor = "lightgreen")
 			: (card.style.backgroundColor = "lightcoral");
-		card.setAttribute("id", book.id);
 		const title = document.createElement("p");
 		title.textContent = `Book Title: ${book.name}`;
 		card.append(title);
@@ -104,14 +103,39 @@ function updateBooks() {
 		const pages = document.createElement("p");
 		pages.textContent = `You are up to page ${book.upTo} / ${book.totalPages}`;
 		card.append(pages);
+		const buttonDivs = document.createElement("div");
+		buttonDivs.classList.add("buttons");
+		const deleteBook = document.createElement("button");
+		deleteBook.setAttribute("id", book.id);
+		deleteBook.textContent = "Delete";
+		buttonDivs.append(deleteBook);
+
+		deleteBook.addEventListener("click", () => {
+			books.forEach((book, index) => {
+				if (book.id == deleteBook.id) {
+					books.splice(index, 1);
+				}
+			});
+			updateBooks();
+		});
+
+		const changeReadStatus = document.createElement("button");
+		changeReadStatus.setAttribute("id", book.id);
+		changeReadStatus.textContent = "Read/Unread";
+		buttonDivs.append(changeReadStatus);
+
+		changeReadStatus.addEventListener("click", () => {
+			books.forEach((book) => {
+				if (book.id == changeReadStatus.id) {
+					book.read = !book.read;
+				}
+			});
+			updateBooks();
+		});
+
+		card.append(buttonDivs);
 		bookGrid.append(card);
 	});
 }
 
 updateBooks();
-
-`
-
-	Author${this.author}
-	Released Year ${this.release}
-	You are up to page ${this.upTo} / ${this.totalPages}`;
