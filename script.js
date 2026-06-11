@@ -53,9 +53,14 @@ const bookGrid = document.querySelector(".book-grid");
 const modal = document.querySelector("dialog");
 const modalForm = document.querySelector("form");
 const formButton = document.querySelector("#modalAddButton");
+const formExitButton = document.querySelector("#exitForm");
 
 addNewBook.addEventListener("click", () => {
 	modal.classList.remove("close");
+});
+
+formExitButton.addEventListener("click", () => {
+	modal.classList.add("close");
 });
 
 const hasRead = document.querySelector("#read");
