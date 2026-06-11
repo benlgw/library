@@ -1,7 +1,46 @@
 body {
-	/* margin: 0; */
+	margin: 0;
 	height: 100vh;
 	width: 100vw;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	padding-bottom: 20px;
+
+	font-size: xx-large;
+
+	color: aliceblue;
+	background-color: antiquewhite;
+	box-shadow: 1px 1px 5px 1px black;
+	text-shadow: 1px 1px 5px black;
+}
+
+header button {
+	height: 50px;
+	width: 300px;
+
+	border: none;
+	border-radius: 10px;
+
+	background-color: aliceblue;
+	box-shadow: 1px 1px 5px 1px;
+
+	font-size: large;
+	font-weight: bold;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header button span {
+	font-size: xx-large;
+	padding-right: 10px;
 }
 
 .book-grid {
@@ -10,6 +49,8 @@ body {
 	grid-template-rows: repeat(3, 1fr);
 	gap: 15px;
 	overflow: auto;
+
+	padding: 15px;
 }
 
 .card {
