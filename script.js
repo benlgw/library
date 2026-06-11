@@ -42,14 +42,6 @@ createBook({
 	read: false,
 });
 
-createBook({
-	book: "Harry Potter: Philosopher's Stone",
-	author: "J.K. Rowling",
-	release: 1997,
-	totalPages: 223,
-	read: false,
-});
-
 // End PlaceHolder Books
 
 const addNewBook = document.querySelector("#addNewBook");
@@ -57,14 +49,6 @@ const bookGrid = document.querySelector(".book-grid");
 const modal = document.querySelector("dialog");
 const modalForm = document.querySelector("form");
 const formButton = document.querySelector("#modalAddButton");
-
-books.forEach((book) => {
-	const card = document.createElement("div");
-	card.classList.add("card");
-	card.setAttribute("id", book.id);
-	card.textContent = book.info();
-	bookGrid.append(card);
-});
 
 addNewBook.addEventListener("click", () => {
 	modal.classList.remove("close");
@@ -87,4 +71,18 @@ formButton.addEventListener("click", () => {
 	});
 
 	modal.classList.add("close");
+	updateBooks();
 });
+
+function updateBooks() {
+	bookGrid.innerHTML = "";
+	books.forEach((book) => {
+		const card = document.createElement("div");
+		card.classList.add("card");
+		card.setAttribute("id", book.id);
+		card.textContent = book.info();
+		bookGrid.append(card);
+	});
+}
+
+updateBooks();
