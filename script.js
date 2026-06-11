@@ -13,7 +13,11 @@ function Book(id, name, author, release, totalPages, read) {
 }
 
 Book.prototype.info = function () {
-	return `${this.name} by ${this.author} released in ${this.release}. You are up to page ${this.upTo} out of ${this.totalPages}`;
+	return `
+	Book Title: ${this.name}
+	Author${this.author}
+	Released Year ${this.release}
+	You are up to page ${this.upTo} / ${this.totalPages}`;
 };
 
 const books = [];
@@ -79,10 +83,30 @@ function updateBooks() {
 	books.forEach((book) => {
 		const card = document.createElement("div");
 		card.classList.add("card");
+		book.read == true
+			? (card.style.backgroundColor = "lightgreen")
+			: (card.style.backgroundColor = "lightcoral");
 		card.setAttribute("id", book.id);
-		card.textContent = book.info();
+		const title = document.createElement("p");
+		title.textContent = `Book Title: ${book.name}`;
+		card.append(title);
+		const author = document.createElement("p");
+		author.textContent = `Book Author: ${book.author}`;
+		card.append(author);
+		const release = document.createElement("p");
+		release.textContent = `Release Year: ${book.release}`;
+		card.append(release);
+		const pages = document.createElement("p");
+		pages.textContent = `You are up to page ${book.upTo} / ${book.totalPages}`;
+		card.append(pages);
 		bookGrid.append(card);
 	});
 }
 
 updateBooks();
+
+`
+
+	Author${this.author}
+	Released Year ${this.release}
+	You are up to page ${this.upTo} / ${this.totalPages}`;

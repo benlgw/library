@@ -2,6 +2,8 @@ body {
 	margin: 0;
 	height: 100vh;
 	width: 100vw;
+
+	background-color: aliceblue;
 }
 
 header {
@@ -45,19 +47,78 @@ header button span {
 
 .book-grid {
 	display: grid;
+	justify-items: center;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	grid-template-rows: repeat(3, 1fr);
 	gap: 15px;
 	overflow: auto;
 
 	padding: 15px;
+	margin-left: 15px;
+
+	width: 85%;
+
+	border: 1px solid red;
 }
 
 .card {
 	height: 200px;
 	width: 250px;
 
-	border: 1px solid black;
+	padding: 15px;
+
+	border-radius: 25px;
+
+	color: aliceblue;
+	box-shadow: 1px 1px 5px 1px black;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.card p {
+	margin: 10px;
+
+	font-weight: bold;
+	text-shadow: 0px 0px 5px black;
+}
+
+.legend {
+	position: absolute;
+	top: 250px;
+	right: 100px;
+}
+
+.legend > h3:nth-child(1) {
+	color: lightgreen;
+}
+
+.legend > h3:nth-child(2) {
+	color: lightcoral;
+}
+
+.legend span {
+	text-shadow: none;
+}
+
+.legend .read {
+	color: lightgreen;
+	background-color: lightgreen;
+	box-shadow: 0px 0px 5px 0px black;
+
+	border-radius: 100%;
+
+	padding: 5px;
+}
+
+.legend .unread {
+	color: lightcoral;
+	background-color: lightcoral;
+	box-shadow: 0px 0px 5px 0px black;
+
+	border-radius: 100%;
+
+	padding: 5px;
 }
 
 .close {
