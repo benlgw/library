@@ -52,7 +52,7 @@ createBook({
 
 // End PlaceHolder Books
 
-const bookGrid = document.querySelector("body");
+const bookGrid = document.querySelector(".book-grid");
 
 books.forEach((book) => {
 	const card = document.createElement("div");
