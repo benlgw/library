@@ -9,9 +9,7 @@ function Book(id, name, author, release, totalPages, read) {
 	this.release = release;
 	this.totalPages = +totalPages;
 	this.read = read;
-	this.read == true
-		? (this.upTo = this.totalPages)
-		: Math.floor(this.totalPages * Math.random());
+	this.upTo = Math.floor(this.totalPages * Math.random());
 }
 
 Book.prototype.info = function () {
