@@ -9,15 +9,15 @@ function Book(id, name, author, release, totalPages, read) {
 	this.release = release;
 	this.totalPages = +totalPages;
 	this.read = read;
-	this.upTo = Math.floor(this.totalPages * Math.random());
+	this.upTo = this.upTo();
 }
 
-Book.prototype.info = function () {
-	return `
-	Book Title: ${this.name}
-	Author${this.author}
-	Released Year ${this.release}
-	You are up to page ${this.upTo} / ${this.totalPages}`;
+Book.prototype.upTo = function () {
+	if (this.read === true) {
+		return this.totalPages;
+	} else {
+		return Math.floor(this.totalPages * Math.random());
+	}
 };
 
 const books = [];
