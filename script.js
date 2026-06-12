@@ -1,24 +1,22 @@
-function Book(id, name, author, release, totalPages, read) {
-	if (!new.target) {
-		throw Error("You must use the 'new' operator to call the constructor");
+class Book {
+	constructor(id, name, author, release, totalPages, read) {
+		this.id = id;
+		this.name = name;
+		this.author = author;
+		this.release = release;
+		this.totalPages = +totalPages;
+		this.read = read;
+		this.upTo = this.upTo();
 	}
 
-	this.id = id;
-	this.name = name;
-	this.author = author;
-	this.release = release;
-	this.totalPages = +totalPages;
-	this.read = read;
-	this.upTo = this.upTo();
+	upTo() {
+		if (this.read === true) {
+			return this.totalPages;
+		} else {
+			return Math.floor(this.totalPages * Math.random());
+		}
+	}
 }
-
-Book.prototype.upTo = function () {
-	if (this.read === true) {
-		return this.totalPages;
-	} else {
-		return Math.floor(this.totalPages * Math.random());
-	}
-};
 
 const books = [];
 
