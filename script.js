@@ -70,7 +70,8 @@ formButton.addEventListener("click", () => {
 
 	inputNoRadio.forEach((input) => {
 		const id = input.getAttribute("id");
-		if (input.valueMissing) {
+		console.log(input.validity.valueMissing);
+		if (input.validity.valueMissing) {
 			input.setCustomValidity(`The ${id} field is required`);
 		} else {
 			input.setCustomValidity("");
