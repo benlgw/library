@@ -47,11 +47,11 @@ createBook({
 // End PlaceHolder Books
 
 const addNewBook = document.querySelector("#addNewBook");
-const bookGrid = document.querySelector(".book-grid");
 const modal = document.querySelector("dialog");
 const modalForm = document.querySelector("form");
 const formButton = document.querySelector("#modalAddButton");
 const formExitButton = document.querySelector("#exitForm");
+const bookGrid = document.querySelector(".book-grid");
 
 addNewBook.addEventListener("click", () => {
 	modal.classList.remove("close");
@@ -63,10 +63,19 @@ formExitButton.addEventListener("click", () => {
 
 const hasRead = document.querySelector("#read");
 
-formButton.addEventListener("click", () => {
-	event.preventDefault();
+const inputNoRadio = modalForm.querySelectorAll("input:not([type='radio'])");
 
-	console.log(modalForm.read.value);
+formButton.addEventListener("click", () => {
+	inputNoRadio.forEach((input) => {
+		const label = input.labels[0].textContent;
+		if (input.validity.valueMissing) {
+			input.setCustomValidity(`The ${label} field is required`);
+		} else {
+			input.setCustomValidity("");
+		}
+	});
+
+	if (!modalForm.checkValidity()) return;
 
 	createBook({
 		book: modalForm.title.value,
