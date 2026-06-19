@@ -66,8 +66,6 @@ const hasRead = document.querySelector("#read");
 const inputNoRadio = modalForm.querySelectorAll("input:not([type='radio'])");
 
 formButton.addEventListener("click", () => {
-	event.preventDefault();
-
 	inputNoRadio.forEach((input) => {
 		const id = input.getAttribute("id");
 		console.log(input.validity.valueMissing);
