@@ -47,11 +47,11 @@ createBook({
 // End PlaceHolder Books
 
 const addNewBook = document.querySelector("#addNewBook");
-const bookGrid = document.querySelector(".book-grid");
 const modal = document.querySelector("dialog");
 const modalForm = document.querySelector("form");
 const formButton = document.querySelector("#modalAddButton");
 const formExitButton = document.querySelector("#exitForm");
+const bookGrid = document.querySelector(".book-grid");
 
 addNewBook.addEventListener("click", () => {
 	modal.classList.remove("close");
