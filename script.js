@@ -64,10 +64,10 @@ formExitButton.addEventListener("click", () => {
 const hasRead = document.querySelector("#read");
 
 const inputNoRadio = modalForm.querySelectorAll("input:not([type='radio'])");
-const inputRadio = modalForm.querySelectorAll("input:type='radio");
 
 formButton.addEventListener("click", () => {
 	event.preventDefault();
+
 	if (!modalForm.checkValidity()) return;
 
 	createBook({
