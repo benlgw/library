@@ -68,6 +68,15 @@ const inputNoRadio = modalForm.querySelectorAll("input:not([type='radio'])");
 formButton.addEventListener("click", () => {
 	event.preventDefault();
 
+	inputNoRadio.forEach((input) => {
+		const id = input.getAttribute("id");
+		if (input.valueMissing) {
+			input.setCustomValidity(`The ${id} field is required`);
+		} else {
+			input.setCustomValidity("");
+		}
+	});
+
 	if (!modalForm.checkValidity()) return;
 
 	createBook({
