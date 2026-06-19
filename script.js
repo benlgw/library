@@ -65,8 +65,7 @@ const hasRead = document.querySelector("#read");
 
 formButton.addEventListener("click", () => {
 	event.preventDefault();
-
-	console.log(modalForm.read.value);
+	if (!modalForm.checkValidity()) return;
 
 	createBook({
 		book: modalForm.title.value,
