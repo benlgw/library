@@ -67,10 +67,9 @@ const inputNoRadio = modalForm.querySelectorAll("input:not([type='radio'])");
 
 formButton.addEventListener("click", () => {
 	inputNoRadio.forEach((input) => {
-		const id = input.getAttribute("id");
-		console.log(input.validity.valueMissing);
+		const label = input.labels[0].textContent;
 		if (input.validity.valueMissing) {
-			input.setCustomValidity(`The ${id} field is required`);
+			input.setCustomValidity(`The ${label} field is required`);
 		} else {
 			input.setCustomValidity("");
 		}
